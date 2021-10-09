@@ -1,6 +1,7 @@
 {
-  "name": "groupme-sleeper-bot",
-  "version": "0.1.0",
+  "name": "fantasy-football-bot",
+  "description": "Fantasy Football Bot for allowing users to interact with various services via custom commands in popular messaging apps.",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "dev": "next dev",

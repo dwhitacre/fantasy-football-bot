@@ -10,7 +10,7 @@ const _f = ({ baseUrl, path, body = {}, options = {} } = {}) => {
       ...options.headers,
     },
   }).then(resp => {
-    if (!resp.ok) throw new Error(resp.statusText)
+    if (!resp.ok) throw new Error(`Fetch Error: ${resp.status} ${resp.statusText}`)
     return resp
   })
 }

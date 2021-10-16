@@ -2,14 +2,16 @@ import middleware from '@/utils/middleware'
 import { get as getCommand } from '@/utils/commands'
 
 export const handler = async (req, res) => {
-  const { commandId, botId } = req.query
+  const { commandId } = req.query
   const command = await getCommand(commandId)
 
   if (!command) return res.response.noop({ msg: 'no matching command', commandId })
+  req.log.debug({ command }, 'found command')
 
-  req.log.debug({ command }, 'running command')
+  if (!command.enabled) return res.response.noop({ msg: 'command not enabled', command })
+  req.log.debug({ command }, 'command enabled, running..')
 
-  return res.response.success
+  return command.run(req, res)
 }
 
 export default middleware(handler)

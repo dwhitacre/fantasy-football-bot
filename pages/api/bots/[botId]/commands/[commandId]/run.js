@@ -8,7 +8,7 @@ export const handler = async (req, res) => {
   if (!command) return res.response.noop({ msg: 'no matching command', commandId })
   req.log.debug({ command }, 'found command')
 
-  if (!command.enabled) return res.response.noop({ msg: 'command not enabled', command })
+  if (!command.enabled) return res.response.noop({ msg: 'command not enabled', commandId })
   req.log.debug({ command }, 'command enabled, running..')
 
   return command.run(req, res)

@@ -1,6 +1,6 @@
-import Test from './test'
+import List from './list'
 
-const commands = [Test].map(Command => new Command()).filter(command => command.valid)
+const commands = [List].map(Command => new Command()).filter(command => command.valid)
 
 export async function get(id) {
   if (id) return commands.find(command => command.id === id)

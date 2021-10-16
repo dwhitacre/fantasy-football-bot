@@ -14,10 +14,12 @@ export default class Base {
   }
 
   async run(req, res) {
-    if (!req.query?.botId) return res.response.noop({ msg: 'missing bot id', command })
-    if (!this.text & !this.url) return res.response.noop({ msg: 'no message nor url', command })
+    const { commandId, botId } = req.query
 
-    const resp = await req.groupme.bots.post(req.query.botId, this.text, this.url)
+    if (!botId) return res.response.noop({ msg: 'missing bot id', commandId })
+    if (!this.text & !this.url) return res.response.noop({ msg: 'no message nor url', commandId })
+
+    const resp = await req.groupme.bots.post(botId, this.text, this.url)
     if (!resp) return res.response.badGateway
 
     return res.response.success

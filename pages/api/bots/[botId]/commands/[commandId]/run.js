@@ -2,6 +2,8 @@ import middleware from '@/utils/middleware'
 import { get as getCommand } from '@/utils/commands'
 
 export const handler = async (req, res) => {
+  if (req.method?.toLowerCase() !== 'post') return res.response.notFound
+
   const { commandId } = req.query
   const command = await getCommand(commandId)
 

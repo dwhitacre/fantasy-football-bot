@@ -10,6 +10,7 @@ export default function response(res) {
     noop: json => res.status(200).json({ status: 'noop', ...json }),
     badRequest: json => res.status(400).json({ status: 'bad request', ...json }),
     unauthorized: json => res.status(401).json({ status: 'not authorized', ...json }),
+    notFound: json => res.status(404).json({ status: 'not found', ...json }),
     error: json => res.status(500).json({ status: 'error', ...json }),
     badGateway: json => res.status(502).json({ status: 'bad gateway', ...json }),
   }

@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "ngrok": "node bin/ngrok.js"
+    "ngrok": "node bin/ngrok.js",
+    "serve": "npm run build && npm start"
   },
   "dependencies": {
     "dotenv": "^10.0.0",

@@ -3,7 +3,7 @@ import { v4 as uuid } from 'uuid'
 import url from 'url'
 
 const logger = pino({
-  redact: ['req.headers.authorization', 'token', '*.token'],
+  redact: ['req.headers.authorization', 'token', '*.token', 'Authorization', '*.Authorization'],
   prettyPrint: process.env.NODE_ENV !== 'production',
   level: process.env.LOG_LEVEL || 'info',
   timestamp: pino.stdTimeFunctions.isoTime,

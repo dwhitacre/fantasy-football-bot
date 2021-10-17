@@ -20,7 +20,7 @@ export default function groupme(req) {
             req.log.debug({ status: resp.status, statusText: resp.statusText }, 'groupme bots/post')
             return true
           })
-          .catch(err => req.log.error({ err }, 'error: groupme bots/post'))
+          .catch(err => req.log.error({ err: err.message }, 'error: groupme bots/post'))
       },
     },
   }

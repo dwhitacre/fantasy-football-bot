@@ -20,7 +20,7 @@ export default function sheets(req) {
           await doc.loadInfo()
           return (internals.cache = doc.sheetsByTitle['Commands']?.getRows())
         } catch (err) {
-          req.log.error({ err }, 'error: sheets rows')
+          req.log.error({ err: err.message }, 'error: sheets rows')
         }
       } else if (internals.cache) {
         req.log.debug({}, 'using sheets cache')

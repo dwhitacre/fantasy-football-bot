@@ -1,5 +1,5 @@
 import middleware from '@/utils/middleware'
-import { handler as commandHandler } from '@/pages/api/bots/[botId]/commands/[commandId]/run'
+import { handler as commandHandler } from '@/pages/api/bots/[botId]/commands/[commandId]'
 
 export const handler = (req, res) => {
   if (req.method?.toLowerCase() !== 'post') return res.response.notFound

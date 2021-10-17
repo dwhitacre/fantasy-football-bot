@@ -2,12 +2,9 @@ export default class Base {
   id = undefined
   text = undefined
   url = undefined
+  desc = undefined
   enabled = true
   hidden = false
-
-  get usage() {
-    return `!${this.id}`
-  }
 
   get valid() {
     return !!this.id

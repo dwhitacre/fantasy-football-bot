@@ -9,7 +9,6 @@
     "start": "next start",
     "lint": "next lint",
     "ngrok": "node bin/ngrok.js",
-    "serve": "npm run build && npm start",
     "test": "npm run lint"
   },
   "dependencies": {

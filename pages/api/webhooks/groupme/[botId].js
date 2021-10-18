@@ -4,7 +4,7 @@ import { handler as commandHandler } from '@/pages/api/bots/[botId]/commands/[co
 export const handler = (req, res) => {
   if (req.method?.toLowerCase() !== 'post') return res.response.notFound
 
-  if (!req.body?.text) return res.response.badRequest
+  if (!req.body?.text) return res.response.noop({ msg: 'no text' })
   if (req.body?.system) return res.response.noop({ msg: 'system message' })
   if (req.body?.sender_type === 'bot') return res.response.noop({ msg: 'bot message' })
 

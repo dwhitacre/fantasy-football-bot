@@ -10,7 +10,13 @@ export async function get(req, res) {
 
   const commands = defaultCommands
     .concat(rows.map(parseCommand))
-    .map(Command => new Command())
+    .reduce((cs, Command) => {
+      const command = new Command()
+      const existing = cs.find(c => c.id === command.id)
+      if (existing) Object.assign(existing, command)
+      else cs.push(command)
+      return cs
+    }, [])
     .filter(command => command.valid)
 
   if (req.query?.commandId) return commands.find(command => command.id === req.query.commandId)

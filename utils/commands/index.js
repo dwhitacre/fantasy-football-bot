@@ -1,8 +1,10 @@
 import { parseCommand } from '@/utils/middleware/sheets'
 import Help from './help'
 import List from './list'
+import Version from './version'
+import WhatsNew from './whatsnew'
 
-const defaultCommands = [Help, List]
+const defaultCommands = [Help, List, Version, WhatsNew]
 
 export async function get(req, res) {
   const rows = await req.sheets.rows()

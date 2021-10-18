@@ -9,7 +9,9 @@
     "start": "next start",
     "lint": "next lint",
     "ngrok": "node bin/ngrok.js",
-    "test": "npm run lint"
+    "test": "npm run lint && jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
     "dotenv": "^10.0.0",
@@ -22,11 +24,17 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.1.2",
+    "babel-jest": "^27.3.0",
     "eslint": "^7.32.0",
     "eslint-config-next": "^11.1.2",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.3.0",
     "ngrok": "^4.1.0",
-    "prettier": "^2.3.2"
+    "prettier": "^2.3.2",
+    "react-test-renderer": "^17.0.2"
   }
 }

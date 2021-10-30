@@ -3,6 +3,7 @@ import token from './token'
 import groupme from './groupme'
 import response from './response'
 import sheets from './sheets'
+import fantasypros from './fantasypros'
 
 export default function middleware(handler, exclude = []) {
   return async (req, res) => {
@@ -15,6 +16,7 @@ export default function middleware(handler, exclude = []) {
       if (!exclude.includes('token')) token(req, res)
       if (!exclude.includes('groupme')) groupme(req)
       if (!exclude.includes('sheets')) sheets(req)
+      if (!exclude.includes('fantasypros')) fantasypros(req)
 
       handled = await handler(req, res)
     } catch (err) {

@@ -3,8 +3,9 @@ import Help from './help'
 import List from './list'
 import Version from './version'
 import WhatsNew from './whatsnew'
+import Ranks from './ranks'
 
-const defaultCommands = [Help, List, Version, WhatsNew]
+const defaultCommands = [Help, List, Version, WhatsNew, Ranks]
 
 export async function get(req, res) {
   const rows = await req.sheets.rows()
